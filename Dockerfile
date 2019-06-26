@@ -48,6 +48,9 @@ RUN apt-get update && \
 apt-get install -y libxml2-dev && \
 docker-php-ext-install soap
 
+# install node, npm and grunt
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install -y nodejs && npm install -g grunt
+
 ENV PHP_MEMORY_LIMIT 2G
 ENV PHP_PORT 9000
 ENV PHP_PM dynamic
